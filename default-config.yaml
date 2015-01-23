@@ -1,0 +1,8 @@
+---
+
+locations: 
+  - name: "BDE"
+    latitude: 53.595484
+    longitude: 9.998751
+
+threshold: 1000
