@@ -3,14 +3,15 @@ var mode = argv._;
 var open = require('open');
 var moment = require('moment');
 var fs = require('fs');
+var path = require('path');
 var yaml = require('js-yaml');
 var parse = require('xml-parser');
 var _ = require('lodash');
 var geolib = require('geolib');
 var Hoek = require('hoek');
 var homeDirectory = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
-var configFile = argv.c || homeDirectory + '/.timesheet.yaml';
-var config = yaml.safeLoad(fs.readFileSync('./default-config.yaml', 'utf8'));
+var configFile = argv.c || path.join(homeDirectory, './.timesheet.yaml');
+var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '/default-config.yaml'), 'utf8'));
 
 try {
 	var readConfig = yaml.safeLoad(fs.readFileSync(configFile, 'utf8'));
