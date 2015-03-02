@@ -114,13 +114,13 @@ switch (mode[0]) {
 				var duration = moment(maxDate.valueOf() - minDate.valueOf()).utc();
 
 				if (lastDate) {
-					var daysBetween = minDate.diff(lastDate.startOf('day'),'days')
+					var daysBetween = minDate.diff(lastDate.clone().startOf('day'),'days')
 					for (i = 1; i < daysBetween; i++) {
 						console.log('');
 					}
 				}
 
-				lastDate = minDate.startOf('day');
+				lastDate = minDate.clone().startOf('day');
 
 				if (duration > 100) {
 					daysWithWork++;
