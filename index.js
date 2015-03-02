@@ -105,12 +105,23 @@ switch (mode[0]) {
 		var totalHours = 0;
 		var daysWithWork = 0;
 
+		var lastDate;
 		_.each(grouped, function(value) {
 			_.each(value, function(time, key) {
 				var minDate = moment(time.min);
 				var maxDate = moment(time.max);
 				totalHours += maxDate.valueOf() - minDate.valueOf();
 				var duration = moment(maxDate.valueOf() - minDate.valueOf()).utc();
+
+				if (lastDate) {
+					var daysBetween = minDate.diff(lastDate.startOf('day'),'days')
+					for (i = 1; i < daysBetween; i++) {
+						console.log('');
+					}
+				}
+
+				lastDate = minDate.startOf('day');
+
 				if (duration > 100) {
 					daysWithWork++;
                 	console.log(minDate.format('DD.MM.YYYY HH:mm') + ' | ' + maxDate.format('DD.MM.YYYY HH:mm') + ' | ' + key + ' | ' + duration.format('HH:mm') );
