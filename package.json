@@ -4,7 +4,7 @@
   "description": "Generate simple timesheet based on google location history.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "author": "Timo Behrmann",
   "license": "MIT",
@@ -21,7 +21,9 @@
   "bin": {
     "timesheet": "./cli.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^4.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/z0mt3c/timesheet.git"
